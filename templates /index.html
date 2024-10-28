@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вітальна сторінка</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            max-width: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%; /* Зміни ширину на 100% */
+            padding: 17px;
+            margin: 0 auto; 
+            display: block; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Додає box-sizing для правильного підрахунку ширини */
+        }
+        
+        button {
+            width: 100%;
+            padding: 20px;
+            margin-top: 17px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Введіть ваше ім'я:</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Ваше ім'я" required oninvalid="this.setCustomValidity('Будь ласка, заповніть це поле.')" oninput="this.setCustomValidity('')">
+            <button type="submit">Привітатися</button>
+        </form>
+        {% if greeting %}
+            <h2>{{ greeting }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
